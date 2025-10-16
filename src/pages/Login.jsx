@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import RegisterPNG from '../assets/register.png'
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const  navigate  = useNavigate() ; 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,6 +28,8 @@ const Login = () => {
   const submithandler = () =>{
     localStorage.setItem("userRegistration", JSON.stringify(formData));
     alert("Data saved to local storage!");
+    navigate('/About') ;
+
 
   }
 
@@ -37,7 +41,7 @@ const Login = () => {
           <img
 
             src={RegisterPNG}
-            alt="Register Art"
+            alt="Register"
             className="w-64 rounded-xl mb-6 h-[350px] "
           />
           <button
